@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -2240,6 +2239,76 @@ img { display: block; max-width: 100%; }
   .in-action-corners .c { font-size: 9px; padding: 4px 8px; }
 }
 
+/* ============================================
+   Nav hamburger + drawer (base — hidden on desktop)
+   ============================================ */
+
+.nav-burger {
+  display: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: border-color 160ms ease;
+}
+.nav-burger:hover { border-color: var(--salt); }
+.nav-burger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--salt);
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+.nav.is-open .nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav.is-open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--ink);
+  border-bottom: 1px solid var(--hairline-strong);
+  display: none;
+  flex-direction: column;
+  padding: 24px var(--site-gutter) 32px;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--salt);
+}
+.nav-drawer a {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--salt);
+}
+.nav-drawer a:last-of-type { border-bottom: none; }
+.nav-drawer .nav-drawer-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  margin-top: 8px;
+  border-top: 1px solid var(--hairline);
+}
+.nav-drawer .nav-drawer-foot .btn {
+  justify-content: center;
+  padding: 16px 20px;
+  font-size: 12px;
+}
+.nav.is-open .nav-drawer { display: flex; }
+
 @media (max-width: 1180px) {
   .spec-wall { grid-template-columns: repeat(3, 1fr); }
   .spec-wall .cell { padding: 32px 24px; min-height: 200px; }
@@ -2262,20 +2331,99 @@ img { display: block; max-width: 100%; }
   .compare { grid-template-columns: 1fr; }
   .compare-col.altio { border-left: none; border-top: 1px solid var(--hairline); }
 }
-@media (max-width: 768px) {
-  :root { --site-gutter: 24px; }
+@media (max-width: 900px) {
   .nav-links { display: none; }
-  .nav-right .muted { display: none; }
-  .section { padding: 80px var(--site-gutter); }
-  .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
-  .hero-stats { grid-template-columns: 1fr; gap: 24px; }
-  .compare, .steps, .svc-list, .properties, .spec-wall, .footer-top, .cta-inner {
+  .nav-phone { display: none; }
+  .nav-cta { display: none; }
+  .nav-burger { display: inline-flex; }
+}
+
+@media (max-width: 768px) {
+  :root { --site-gutter: 20px; }
+  .section { padding: 72px var(--site-gutter); }
+  .section-head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 40px; }
+  .section-title { font-size: clamp(32px, 8vw, 44px) !important; }
+  .section-lede { font-size: 17px !important; }
+
+  /* Hero scale-down */
+  .hero { padding: 56px var(--site-gutter) 40px; gap: 40px; min-height: auto; }
+  .hero h1 { font-size: clamp(40px, 11vw, 52px) !important; margin: 16px 0 20px; line-height: 1; }
+  .hero-lede { font-size: 17px; margin-bottom: 28px; }
+  .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; padding-top: 24px; }
+  .hero-stat .v { font-size: 28px; }
+  .hero-stat .v .u { font-size: 9px; vertical-align: 10px; }
+  .hero-stat .lbl { font-size: 9px; margin-top: 6px; }
+  .hero-cta { gap: 12px; }
+  .hero-cta .btn { font-size: 10px; padding: 11px 16px; }
+
+  /* Trust bar */
+  .trustbar-inner { grid-template-columns: 1fr; gap: 14px; }
+  .trustbar .clients { gap: 18px 24px; }
+  .trustbar .clients .client { font-size: 15px; }
+
+  /* Services / steps / properties / specs — single column */
+  .compare, .steps, .svc-list, .properties, .spec-wall, .footer-top, .cta-inner,
+  .coverage {
     grid-template-columns: 1fr !important;
   }
+  .compare-col.altio { border-left: none; border-top: 1px solid var(--hairline); }
+  .coverage-list { padding: 28px 24px; }
+  .coverage-map { min-height: 320px; }
+
+  /* Spec wall numbers shrink */
+  .spec-wall .cell { padding: 28px 22px; min-height: 160px; gap: 16px; }
+  .spec-wall .v { font-size: 36px !important; }
+  .spec-wall .v .u { font-size: 10px; vertical-align: 10px; }
+  .spec-wall .lbl { font-size: 12px; }
+
+  /* In-action band 4:3 on mobile */
+  .in-action-band { aspect-ratio: 4 / 3; }
+  .in-action-meta { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .in-action-meta-l { font-size: 10px; }
+  .in-action-meta-r { font-size: 9px; }
+  .in-action-corners { inset: 14px 18px auto 18px; }
+  .in-action-corners .c { font-size: 8px; padding: 4px 7px; letter-spacing: 0.14em; }
+
+  /* Testimonial / metrics */
+  .testimonial { grid-template-columns: 1fr; gap: 32px; }
+  .testimonial-q { font-size: clamp(22px, 5vw, 28px) !important; }
   .metrics { grid-template-columns: 1fr 1fr; }
-  .trustbar-inner { grid-template-columns: 1fr; gap: 16px; }
-  .faq-row { grid-template-columns: 40px 1fr 20px; gap: 16px; }
-  .faq-q { font-size: 18px; }
+  .metric { padding: 22px 20px; min-height: 140px; }
+  .metric .v { font-size: 36px; }
+
+  /* Cards / steps padding */
+  .svc { padding: 28px 22px; min-height: auto; }
+  .svc h4 { font-size: 19px; }
+  .step { padding: 32px 24px; min-height: auto; gap: 18px; }
+  .step h3 { font-size: 22px; }
+
+  /* CTA form padding */
+  .cta-section { padding: 80px var(--site-gutter); }
+  .cta-section h2 { font-size: clamp(34px, 7vw, 48px) !important; }
+  .cta-section p { font-size: 17px; }
+  .cta-form { padding: 28px 24px; gap: 14px; }
+  .cta-form .row { grid-template-columns: 1fr; gap: 14px; }
+
+  /* FAQ */
+  .faq-row { grid-template-columns: 32px 1fr 18px; gap: 14px; padding: 26px 0; }
+  .faq-row:hover { padding-left: 8px; padding-right: 8px; }
+  .faq-q { font-size: 17px; }
+  .faq-a { font-size: 15px; }
+
+  /* Footer */
+  .footer { padding: 64px var(--site-gutter) 28px; }
+  .footer-top { gap: 36px; padding-bottom: 36px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: clamp(36px, 11vw, 44px) !important; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .hero-stats .hero-stat:nth-child(3) { grid-column: span 2; }
+  .metrics { grid-template-columns: 1fr; }
+  .trustbar .clients { gap: 12px 18px; }
+  .trustbar .clients .client { font-size: 13px; }
+  .section-title { font-size: clamp(28px, 8vw, 36px) !important; }
 }
 
   </style>
@@ -2666,17 +2814,24 @@ const { useState: useS1, useEffect: useE1, useRef: useR1 } = React;
 // --------- Nav ---------
 const Nav = () => {
   const [scrolled, setScrolled] = useS1(false);
+  const [menuOpen, setMenuOpen] = useS1(false);
   useE1(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  useE1(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={'nav' + (scrolled ? ' is-scrolled' : '')}>
+    <header className={'nav' + (scrolled ? ' is-scrolled' : '') + (menuOpen ? ' is-open' : '')}>
       <div className="nav-inner">
-        <a href="#top" className="nav-mark" aria-label="Altio — home">
+        <a href="#top" className="nav-mark" aria-label="Altio — home" onClick={closeMenu}>
           <Wordmark weight={20} style={{ width: 84 }} />
         </a>
         <nav className="nav-links">
@@ -2686,8 +2841,29 @@ const Nav = () => {
           <a href="#properties">Properties</a>
         </nav>
         <div className="nav-right">
-          <span className="muted" style={{ fontSize: 10 }}>+1 (310) 555-0144</span>
-          <a href="#survey" className="btn btn-cyan">Request a Survey</a>
+          <span className="muted nav-phone" style={{ fontSize: 10 }}>+1 (310) 555-0144</span>
+          <a href="#survey" className="btn btn-cyan nav-cta">Request a Survey</a>
+          <button
+            type="button"
+            className="nav-burger"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </div>
+      {/* Mobile drawer */}
+      <div className="nav-drawer" aria-hidden={!menuOpen}>
+        <a href="#services" onClick={closeMenu}>Services</a>
+        <a href="#how" onClick={closeMenu}>How it works</a>
+        <a href="#why" onClick={closeMenu}>Why Altio</a>
+        <a href="#properties" onClick={closeMenu}>Properties</a>
+        <a href="#faq" onClick={closeMenu}>FAQ</a>
+        <div className="nav-drawer-foot">
+          <span className="muted">+1 (310) 555-0144</span>
+          <a href="#survey" className="btn btn-cyan" onClick={closeMenu}>Request a Survey →</a>
         </div>
       </div>
     </header>

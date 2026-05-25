@@ -2430,10 +2430,9 @@ img { display: block; max-width: 100%; }
 .nav.is-open .nav-drawer { display: flex; }
 
 @media (max-width: 1180px) {
-  .spec-wall { grid-template-columns: repeat(3, 1fr); }
   .spec-wall .cell { padding: 32px 24px; min-height: 200px; }
   .spec-wall .v { font-size: 44px !important; }
-  .properties { grid-template-columns: repeat(2, 1fr); }
+  .properties { grid-template-columns: repeat(2, 1fr) !important; }
   .steps { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
@@ -2478,17 +2477,17 @@ img { display: block; max-width: 100%; }
 
   /* Trust bar */
   .trustbar-inner { grid-template-columns: 1fr; gap: 14px; }
-  .trustbar .clients { gap: 18px 24px; }
-  .trustbar .clients .client { font-size: 15px; }
+  .trustbar .clients { gap: 14px 20px; }
+  .trustbar .clients .client { font-size: 14px; }
 
-  /* Services / steps / properties / specs — single column */
+  /* All multi-col grids stack on phone */
   .compare, .steps, .svc-list, .properties, .spec-wall, .footer-top, .cta-inner,
-  .coverage {
+  .coverage, .inspection-compare, .inspection-grid {
     grid-template-columns: 1fr !important;
   }
   .compare-col.altio { border-left: none; border-top: 1px solid var(--hairline); }
   .coverage-list { padding: 28px 24px; }
-  .coverage-map { min-height: 320px; }
+  .coverage-map { min-height: 360px; }
 
   /* Spec wall numbers shrink */
   .spec-wall .cell { padding: 28px 22px; min-height: 160px; gap: 16px; }
@@ -2511,11 +2510,34 @@ img { display: block; max-width: 100%; }
   .metric { padding: 22px 20px; min-height: 140px; }
   .metric .v { font-size: 36px; }
 
-  /* Cards / steps padding */
+  /* Service cards */
   .svc { padding: 28px 22px; min-height: auto; }
   .svc h4 { font-size: 19px; }
+  .svc-tag { font-size: 8px; letter-spacing: 0.14em; }
+  .svc p { font-size: 13.5px; }
+  .svc .specs { font-size: 9px; }
+
+  /* How-it-works steps */
   .step { padding: 32px 24px; min-height: auto; gap: 18px; }
   .step h3 { font-size: 22px; }
+  .step p { font-size: 15px; }
+
+  /* Property cards */
+  .property { aspect-ratio: 5 / 4; }
+  .property .meta { padding: 20px; }
+  .property .meta .name { font-size: 20px; }
+  .property .meta .city { font-size: 9px; }
+
+  /* Inspection compare cells */
+  .ic-cell { padding: 32px 24px; min-height: auto; }
+  .ic-altio { border-left: none !important; border-top: 1px solid var(--hairline-strong); }
+  .ic-name { font-size: 19px; }
+  .ic-v { font-size: 48px !important; }
+  .ic-d { font-size: 14px; }
+  .ig-cell { padding: 22px 20px; min-height: auto; }
+  .ig-k { font-size: 16px; }
+  .ig-cell p { font-size: 13.5px; }
+  .inspection-kicker { font-size: 22px !important; padding: 24px 0; margin-top: 32px; }
 
   /* CTA form padding */
   .cta-section { padding: 80px var(--site-gutter); }
@@ -2533,17 +2555,25 @@ img { display: block; max-width: 100%; }
   /* Footer */
   .footer { padding: 64px var(--site-gutter) 28px; }
   .footer-top { gap: 36px; padding-bottom: 36px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .footer-col h5 { margin-bottom: 14px; }
+  .footer-col ul { font-size: 14px; gap: 10px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; font-size: 9px; }
+  .footer-bottom .legal { flex-wrap: wrap; }
+  .footer-brand p { max-width: none; }
 }
 
 @media (max-width: 420px) {
-  .hero h1 { font-size: clamp(36px, 11vw, 44px) !important; }
+  .hero h1 { font-size: clamp(34px, 11vw, 42px) !important; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .hero-stats .hero-stat:nth-child(3) { grid-column: span 2; }
   .metrics { grid-template-columns: 1fr; }
-  .trustbar .clients { gap: 12px 18px; }
-  .trustbar .clients .client { font-size: 13px; }
-  .section-title { font-size: clamp(28px, 8vw, 36px) !important; }
+  .trustbar .clients { gap: 10px 16px; }
+  .trustbar .clients .client { font-size: 12.5px; white-space: normal; }
+  .section-title { font-size: clamp(26px, 8vw, 34px) !important; }
+  .hero-visual { aspect-ratio: 4 / 3; }
+  .coverage-map { min-height: 280px; }
+  .spec-wall .cell { padding: 22px 18px; }
+  .spec-wall .v { font-size: 30px !important; }
 }
 </style>
 </head>

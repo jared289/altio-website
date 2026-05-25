@@ -2563,17 +2563,19 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 420px) {
-  .hero h1 { font-size: clamp(34px, 11vw, 42px) !important; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
-  .hero-stats .hero-stat:nth-child(3) { grid-column: span 2; }
-  .metrics { grid-template-columns: 1fr; }
+  .hero h1 { font-size: clamp(36px, 11vw, 44px) !important; }
+  .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .hero-stat .v { font-size: 24px; }
+  .hero-stat .v .u { font-size: 8px; }
+  .hero-stat .lbl { font-size: 8.5px; letter-spacing: 0.10em; }
+  .metrics { grid-template-columns: 1fr 1fr; }
   .trustbar .clients { gap: 10px 16px; }
-  .trustbar .clients .client { font-size: 12.5px; white-space: normal; }
-  .section-title { font-size: clamp(26px, 8vw, 34px) !important; }
+  .trustbar .clients .client { font-size: 13px; white-space: normal; }
+  .section-title { font-size: clamp(28px, 8vw, 36px) !important; }
   .hero-visual { aspect-ratio: 4 / 3; }
-  .coverage-map { min-height: 280px; }
-  .spec-wall .cell { padding: 22px 18px; }
-  .spec-wall .v { font-size: 30px !important; }
+  .coverage-map { min-height: 300px; }
+  .spec-wall .cell { padding: 24px 18px; }
+  .spec-wall .v { font-size: 34px !important; }
 }
 </style>
 </head>

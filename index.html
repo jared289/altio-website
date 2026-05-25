@@ -7,13 +7,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Altio — Autonomous Exterior Maintenance · altioaem.com</title>
-  <meta name="description" content="Drone-led facade, window, and gutter cleaning for luxury hotels, HOAs, and commercial properties on LA's westside. No scaffolding. No lifts. No one on the wall." />
+  <meta name="description" content="Drone-led facade, window, gutter, parking garage, graffiti removal, and facade inspection services for properties across Southern California." />
   <meta name="theme-color" content="#05080C" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-/* ============================================
+  <style>/* ============================================
    ALTIO — Brand Identity Guidelines
    ============================================ */
 
@@ -1164,7 +1163,7 @@ img { display: block; max-width: 100%; }
 .hero-visual {
   position: relative;
   z-index: 1;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   background: var(--ink-2);
   border: 1px solid var(--hairline);
   overflow: hidden;
@@ -1572,7 +1571,7 @@ img { display: block; max-width: 100%; }
 
 .spec-wall {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 4px;
   border: 1px solid var(--hairline);
 }
@@ -2243,8 +2242,126 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================
-   Nav hamburger + drawer (base — hidden on desktop)
+   Inspection — included deliverable section
    ============================================ */
+
+.inspection-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  border: 1px solid var(--hairline);
+  margin-bottom: 4px;
+}
+.ic-cell {
+  background: var(--ink-2);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 280px;
+}
+.ic-cell.ic-altio {
+  background: linear-gradient(180deg, rgba(61,140,255,0.08) 0%, var(--ink-3) 100%);
+  border-left: 1px solid var(--hairline-strong);
+}
+.ic-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--salt-3);
+}
+.ic-altio .ic-lbl { color: var(--cyan); }
+.ic-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--salt);
+}
+.ic-v {
+  font-family: var(--display);
+  font-weight: 200;
+  font-size: 64px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--salt);
+  margin: 8px 0;
+}
+.ic-altio .ic-v { color: var(--cyan); }
+.ic-trad .ic-v { color: var(--signal); }
+.ic-v .ic-u {
+  font-family: var(--mono);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--salt-3);
+  vertical-align: 18px;
+  margin-left: 4px;
+}
+.ic-trad .ic-v .ic-u { color: var(--signal); opacity: 0.7; }
+.ic-altio .ic-v .ic-u { color: var(--cyan); opacity: 0.7; font-size: 14px; vertical-align: 24px; }
+.ic-d {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--salt-2);
+  margin-top: auto;
+  text-wrap: pretty;
+}
+
+.inspection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 4px;
+}
+.ig-cell {
+  background: var(--ink-2);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+}
+.ig-k {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--salt);
+  line-height: 1.2;
+}
+.ig-cell p {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--salt-2);
+  text-wrap: pretty;
+}
+
+.inspection-kicker {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--salt-2);
+  margin-top: 48px;
+  padding: 32px 0;
+  border-top: 1px solid var(--hairline);
+  text-wrap: balance;
+}
+.inspection-kicker .cyan { color: var(--cyan); }
+
+@media (max-width: 1080px) {
+  .inspection-compare { grid-template-columns: 1fr; }
+  .ic-cell.ic-altio { border-left: none; border-top: 1px solid var(--hairline-strong); }
+  .inspection-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .inspection-grid { grid-template-columns: 1fr; }
+}
 
 .nav-burger {
   display: none;
@@ -2428,16 +2545,13 @@ img { display: block; max-width: 100%; }
   .trustbar .clients .client { font-size: 13px; }
   .section-title { font-size: clamp(28px, 8vw, 36px) !important; }
 }
-
-  </style>
+</style>
 </head>
 <body data-screen-label="altioaem.com">
   <div id="root"></div>
-
   <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
-
   <script type="text/babel">/* ============================================
    ALTIO — Marks Library
    Wordmark + monograms + icons, all drawn from
@@ -2790,6 +2904,33 @@ const CoastScan = ({ color = 'currentColor', className = '', style = {} }) => (
   </svg>
 );
 
+// --- Inspection (viewfinder framing brackets — camera + assessment) ---
+const InspectionIcon = ({ color = 'currentColor', className = '', style = {} }) => (
+  <svg
+    viewBox="0 0 120 120"
+    className={className}
+    style={{ width: '100%', height: 'auto', display: 'block', ...style }}
+    fill="none"
+    stroke={color}
+    strokeWidth="2.5"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
+  >
+    {/* Four corner viewfinder brackets */}
+    <polyline points="20,40 20,20 40,20" />
+    <polyline points="80,20 100,20 100,40" />
+    <polyline points="100,80 100,100 80,100" />
+    <polyline points="40,100 20,100 20,80" />
+    {/* Center crosshair */}
+    <line x1="55" y1="60" x2="65" y2="60" />
+    <line x1="60" y1="55" x2="60" y2="65" />
+    {/* Scan beam, indicating active assessment */}
+    <line x1="30" y1="50" x2="90" y2="50" strokeDasharray="2 4" strokeWidth="1.4" />
+    {/* Subtle check mark in bottom right area, indicating "verified" */}
+    <polyline points="74,76 78,80 86,72" strokeWidth="2" />
+  </svg>
+);
+
 Object.assign(window, {
   Wordmark,
   PeakMark,
@@ -2800,6 +2941,7 @@ Object.assign(window, {
   BuildingIcon,
   SweepIcon,
   PathIcon,
+  InspectionIcon,
   DronePathPattern,
   DotGrid,
   CoastScan,
@@ -2875,13 +3017,13 @@ const Hero = () => (
   <section className="hero" id="top">
     <div className="hero-grid-bg" />
     <div className="hero-content">
-      <span className="eyebrow">Santa Monica · Westside LA</span>
+      <span className="eyebrow">Santa Monica · Southern California</span>
       <h1>
         The exterior,<br />
         <span className="cyan">on autopilot.</span>
       </h1>
       <p className="hero-lede">
-        Drone-led facade, window, and gutter cleaning for luxury hotels, HOAs, and commercial properties on LA's westside. No scaffolding. No lifts. No one on the wall.
+        Drone-led facade, window, and gutter cleaning for luxury hotels, HOAs, and commercial properties across Southern California. No scaffolding. No lifts. No one on the wall.
       </p>
       <div className="hero-cta">
         <a href="#survey" className="btn btn-cyan">Request a Survey →</a>
@@ -2914,11 +3056,11 @@ const HeroVisual = () => (
       alt="Altio Cybertruck — CT-01 on Ocean Avenue, Sherpa drone overhead"
       style={{
         position: 'absolute',
-        inset: 0,
-        width: '100%',
-        height: '100%',
+        inset: '6%',
+        width: '88%',
+        height: '88%',
         objectFit: 'cover',
-        objectPosition: 'center 55%',
+        objectPosition: 'center 65%',
         display: 'block',
         filter: 'contrast(1.04) saturate(0.95)',
       }}
@@ -2959,6 +3101,8 @@ const TrustBar = () => (
         <span className="client">Luxury HOAs</span>
         <span className="client">Commercial Office</span>
         <span className="client">High-Rise Condos</span>
+        <span className="client">Industrial Warehouse</span>
+        <span className="client">Parking Garages</span>
       </div>
     </div>
   </section>
@@ -2999,6 +3143,22 @@ const Services = () => {
       icon: LavoBotIcon,
       core: true,
     },
+    {
+      tag: 'Sherpa drone · same-day response',
+      title: 'Graffiti Removal',
+      desc: 'Tag spotted? Drone dispatched. Calibrated chemistry lifts paint off stucco, glass, brick, and metal without leaving a shadow. Documented before and after.',
+      specs: ['SAME-DAY DISPATCH', 'NO SHADOWS', 'PHOTO REPORT'],
+      icon: SweepIcon,
+      core: false,
+    },
+    {
+      tag: 'Included · every visit',
+      title: 'Facade Inspection',
+      desc: 'Every drone visit doubles as a facade condition report — timestamped photos, flagged problem areas, plain-English summary. Bundled with your contract. No add-on.',
+      specs: ['BUNDLED', 'PHOTO REPORT', 'CONDITION TRACKING'],
+      icon: InspectionIcon,
+      core: true,
+    },
   ];
   return (
     <section className="section" id="services">
@@ -3006,7 +3166,7 @@ const Services = () => {
         <header className="section-head">
           <span className="section-num">01 / Services</span>
           <div>
-            <span className="eyebrow">Four services. Two platforms.</span>
+            <span className="eyebrow">Six services. Two platforms.</span>
             <h2 className="section-title">
               Everything outside,<br />
               <em>handled by robots.</em>
@@ -3017,7 +3177,7 @@ const Services = () => {
           </div>
         </header>
 
-        <div className="svc-list" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+        <div className="svc-list" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {services.map((s) => (
             <article key={s.title} className={'svc ' + (s.core ? 'core' : 'standard')}>
               <span className="svc-tag">{s.tag}</span>
@@ -3241,10 +3401,12 @@ const WhyAltio = () => {
 // --------- Properties / Clients ---------
 const PropertiesSection = () => {
   const properties = [
-    { name: 'Beachfront hotels', city: 'Santa Monica · Venice', badge: 'Salt-air priority', PatternComp: CoastScan },
-    { name: 'Luxury HOAs', city: 'Brentwood · Beverly Hills', badge: 'Standing service', PatternComp: DotGrid },
-    { name: 'Commercial office', city: 'West Hollywood', badge: 'Quarterly cycle', PatternComp: DronePathPattern },
-    { name: 'High-rise condos', city: 'Wilshire corridor', badge: 'Up to 200 ft', PatternComp: CoastScan },
+    { name: 'Beachfront hotels',   city: 'Santa Monica · Venice',       badge: 'Salt-air priority', PatternComp: CoastScan },
+    { name: 'Luxury HOAs',         city: 'Brentwood · Beverly Hills',     badge: 'Standing service',  PatternComp: DotGrid },
+    { name: 'Commercial office',   city: 'West Hollywood · Century City', badge: 'Quarterly cycle',   PatternComp: DronePathPattern },
+    { name: 'High-rise condos',    city: 'Wilshire corridor',             badge: 'Up to 200 ft',      PatternComp: CoastScan },
+    { name: 'Industrial warehouse',city: 'Inland Empire · South Bay',    badge: 'Large surface area', PatternComp: DotGrid },
+    { name: 'Parking garages',     city: 'Throughout the region',         badge: 'Lavo AI · ground',   PatternComp: DronePathPattern },
   ];
   return (
     <section className="section alt" id="properties">
@@ -3252,18 +3414,17 @@ const PropertiesSection = () => {
         <header className="section-head">
           <span className="section-num">04 / Properties</span>
           <div>
-            <span className="eyebrow">Built for the Westside</span>
+            <span className="eyebrow">Built for Southern California</span>
             <h2 className="section-title">
-              Coastal property is <em>relentless</em>.<br />
-              So is our schedule.
+              Every kind of exterior. <em>One vendor.</em>
             </h2>
             <p className="section-lede">
-              Salt air accelerates buildup. Beachfront facades need 2–3× the service frequency of inland buildings — and standing-service clients receive monthly inspections, quarterly washes, and a property report on every visit.
+              From beachfront hotels to inland warehouses, high-rise condos to parking decks &mdash; the operating model adapts to the property. Standing-service clients receive monthly inspections, quarterly washes, and a property report on every visit.
             </p>
           </div>
         </header>
 
-        <div className="properties" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <div className="properties" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {properties.map((p) => (
             <article key={p.name} className="property">
               <div className="ph ph-arch">
@@ -3283,11 +3444,12 @@ const PropertiesSection = () => {
           <div className="coverage-list">
             <h3>Service coverage</h3>
             {[
-              ['Santa Monica', '< 20 min'],
-              ['Venice', '< 25 min'],
-              ['Brentwood', '< 30 min'],
-              ['West Hollywood', '< 35 min'],
-              ['Beverly Hills', '< 30 min'],
+              ['West LA', '< 30 min'],
+              ['Downtown LA · Hollywood', '< 45 min'],
+              ['San Fernando Valley · Pasadena', '< 50 min'],
+              ['South Bay · Long Beach', '< 60 min'],
+              ['Orange County', '< 75 min'],
+              ['Inland Empire', '< 90 min'],
             ].map(([city, eta]) => (
               <div key={city} className="coverage-row">
                 <span className="city">{city}</span>
@@ -3296,7 +3458,8 @@ const PropertiesSection = () => {
             ))}
             <div style={{ marginTop: 24, fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.04em', color: 'var(--salt-3)', lineHeight: 1.7 }}>
               Dispatched from Santa Monica HQ.<br />
-              On-site response within 35 minutes across the Westside.
+              Greater LA · Orange County · Inland Empire.<br />
+              Same-week response across the service area.
             </div>
           </div>
           <CoverageMap />
@@ -3314,18 +3477,16 @@ const CoverageMap = () => (
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
     >
       <defs>
-        {/* Beach hatch pattern */}
-        <pattern id="beach" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="var(--cyan)" strokeWidth="0.5" opacity="0.5" />
-        </pattern>
-        {/* Ocean dot pattern */}
         <pattern id="ocean" width="14" height="14" patternUnits="userSpaceOnUse">
-          <circle cx="7" cy="7" r="0.6" fill="var(--cyan)" opacity="0.25" />
+          <circle cx="7" cy="7" r="0.6" fill="var(--cyan)" opacity="0.22" />
+        </pattern>
+        <pattern id="beach" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="var(--cyan)" strokeWidth="0.4" opacity="0.45" />
         </pattern>
       </defs>
 
-      {/* Subtle background grid */}
-      <g opacity="0.3">
+      {/* Background grid */}
+      <g opacity="0.28">
         {[...Array(15)].map((_, i) => (
           <line key={'h' + i} x1="0" y1={i * 40} x2="640" y2={i * 40} stroke="var(--hairline)" strokeWidth="0.5" />
         ))}
@@ -3334,169 +3495,143 @@ const CoverageMap = () => (
         ))}
       </g>
 
-      {/* OCEAN — Santa Monica Bay
-          Real geography: coast runs ~N-S from Pacific Palisades down through Santa Monica,
-          curves east at the bay, then southeast through Venice / Marina del Rey toward LAX. */}
+      {/* PACIFIC OCEAN — calibrated to real coast:
+          • Top (Malibu): coast runs SE
+          • Santa Monica Bay: concave curve south to Manhattan Bch
+          • Palos Verdes Peninsula: convex bulge southwest (~y=320)
+          • San Pedro/LB Harbor: concave inward notch (~y=365)
+          • Then southeast along OC coast through Huntington / Newport / Laguna */}
       <path
-        d="
-          M 0 0
-          L 0 540
-          L 230 540
-          L 215 510 L 200 480 L 185 450 L 170 420 L 158 390
-          L 148 360 L 138 340 L 128 320
-          L 115 305 L 100 295 L 90 285
-          L 95 265 L 105 245 L 112 220 L 118 195
-          L 122 170 L 126 145 L 130 120 L 132 95
-          L 128 70 L 120 45 L 108 20 L 95 0
-          Z
-        "
+        d="M 0 0
+           L 0 540
+           L 320 540
+           L 346 514 L 370 484 L 392 452 L 408 416 L 414 380
+           L 408 358 L 392 344 L 372 336 L 348 332
+           L 322 332 L 296 334 L 270 334
+           L 246 332 L 224 326 L 206 314 L 192 296
+           L 184 274 L 184 252 L 192 232 L 200 212
+           L 178 196 L 154 188 L 132 192 L 116 204
+           L 110 178 L 110 148 L 116 118 L 124 88 L 128 58 L 124 28 L 110 0
+           Z"
         fill="url(#ocean)"
         stroke="none"
       />
 
-      {/* Beach line — hatch strip just inland of coast */}
+      {/* Beach hatch strip just inland */}
       <path
-        d="
-          M 95 0
-          L 108 20 L 120 45 L 128 70 L 132 95
-          L 130 120 L 126 145 L 122 170 L 118 195
-          L 112 220 L 105 245 L 95 265 L 90 285
-          L 100 295 L 115 305 L 128 320 L 138 340
-          L 148 360 L 158 390 L 170 420 L 185 450
-          L 200 480 L 215 510 L 230 540
-          L 250 540
-          L 235 510 L 220 480 L 205 450 L 190 420
-          L 178 390 L 168 360 L 158 340 L 148 320
-          L 135 305 L 120 295 L 110 285
-          L 115 265 L 125 245 L 132 220 L 138 195
-          L 142 170 L 146 145 L 150 120 L 152 95
-          L 148 70 L 140 45 L 128 20 L 115 0
-          Z
-        "
+        d="M 110 0 L 124 28 L 128 58 L 124 88 L 116 118 L 110 148 L 110 178 L 116 204 L 132 192 L 154 188 L 178 196 L 200 212 L 192 232 L 184 252 L 184 274 L 192 296 L 206 314 L 224 326 L 246 332 L 270 334 L 296 334 L 322 332 L 348 332 L 372 336 L 392 344 L 408 358 L 414 380 L 408 416 L 392 452 L 370 484 L 346 514 L 320 540
+           L 340 540
+           L 362 514 L 386 482 L 406 450 L 422 416 L 428 378 L 422 354 L 404 338 L 380 326 L 356 322 L 326 322 L 296 322 L 268 322 L 244 320 L 224 314 L 208 302 L 196 286 L 190 268 L 196 246 L 208 224 L 198 206 L 178 192 L 154 184 L 132 184 L 116 192 L 122 168 L 124 144 L 130 116 L 138 88 L 142 58 L 138 28 L 124 0
+           Z"
         fill="url(#beach)"
-        opacity="0.5"
+        opacity="0.55"
       />
 
-      {/* Coastline — primary line */}
+      {/* Coastline primary stroke */}
       <path
-        d="
-          M 95 0
-          L 108 20 L 120 45 L 128 70 L 132 95
-          L 130 120 L 126 145 L 122 170 L 118 195
-          L 112 220 L 105 245 L 95 265 L 90 285
-          L 100 295 L 115 305 L 128 320 L 138 340
-          L 148 360 L 158 390 L 170 420 L 185 450
-          L 200 480 L 215 510 L 230 540
-        "
+        d="M 110 0 L 124 28 L 128 58 L 124 88 L 116 118 L 110 148 L 110 178 L 116 204 L 132 192 L 154 188 L 178 196 L 200 212 L 192 232 L 184 252 L 184 274 L 192 296 L 206 314 L 224 326 L 246 332 L 270 334 L 296 334 L 322 332 L 348 332 L 372 336 L 392 344 L 408 358 L 414 380 L 408 416 L 392 452 L 370 484 L 346 514 L 320 540"
         stroke="var(--cyan)"
         strokeWidth="1.5"
         fill="none"
       />
 
-      {/* I-405 freeway — vertical, runs through Sepulveda Pass / Brentwood */}
-      <path
-        d="M 270 0 L 268 80 L 270 140 L 274 210 L 278 280 L 282 340 L 285 400 L 286 470 L 285 540"
-        stroke="var(--salt-3)"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.7"
-      />
-      <text x="276" y="510" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.14em" opacity="0.7">405</text>
+      {/* I-405 — SFV through Westside, around LAX, south through LB into OC */}
+      <path d="M 240 0 L 234 50 L 220 100 L 200 140 L 178 170 L 158 198 L 148 230 L 152 260 L 168 296 L 196 326 L 226 358 L 258 392 L 290 424 L 322 454 L 354 484 L 388 514 L 410 540"
+            stroke="var(--salt-3)" strokeWidth="1" fill="none" opacity="0.55" />
+      <text x="148" y="214" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.14em" opacity="0.7">405</text>
 
-      {/* I-10 freeway — horizontal east-west, terminates at SM pier */}
-      <path
-        d="M 110 295 L 180 298 L 260 302 L 340 305 L 430 308 L 520 311 L 640 314"
-        stroke="var(--salt-3)"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.7"
-      />
-      <text x="600" y="304" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.14em" opacity="0.7">10</text>
+      {/* I-10 — east-west across LA basin to Inland Empire */}
+      <path d="M 110 215 L 180 210 L 250 205 L 320 200 L 390 200 L 460 200 L 540 200 L 640 200"
+            stroke="var(--salt-3)" strokeWidth="1" fill="none" opacity="0.55" />
+      <text x="600" y="195" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.14em" opacity="0.7">10</text>
 
-      {/* Sunset Blvd — curves from coast east through Brentwood/Bel Air/Beverly Hills/WeHo */}
-      <path
-        d="M 130 120 Q 200 130, 245 160 T 360 200 Q 420 215, 480 220 L 640 222"
-        stroke="var(--salt-3)"
-        strokeWidth="0.8"
-        fill="none"
-        strokeDasharray="3 3"
-        opacity="0.5"
-      />
-      <text x="345" y="195" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.14em" opacity="0.55">SUNSET BLVD</text>
+      {/* I-5 — diagonal NW through SFV / DTLA / OC down to San Diego */}
+      <path d="M 240 0 L 248 50 L 264 100 L 278 150 L 290 198 L 308 232 L 332 262 L 360 290 L 384 318 L 404 348 L 422 380 L 438 414 L 450 450 L 462 486 L 472 520 L 478 540"
+            stroke="var(--salt-3)" strokeWidth="1" fill="none" opacity="0.5" />
+      <text x="282" y="46" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.14em" opacity="0.7">5</text>
 
-      {/* Wilshire Blvd — runs SM east through BH */}
-      <path
-        d="M 120 250 Q 200 260, 280 268 T 440 275 Q 510 278, 640 280"
-        stroke="var(--salt-3)"
-        strokeWidth="0.8"
-        fill="none"
-        strokeDasharray="3 3"
-        opacity="0.5"
-      />
-      <text x="350" y="265" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.14em" opacity="0.55">WILSHIRE BLVD</text>
+      {/* I-15 — vertical through Inland Empire */}
+      <path d="M 560 0 L 556 60 L 550 130 L 540 200 L 528 270 L 514 340 L 502 410 L 490 480 L 478 540"
+            stroke="var(--salt-3)" strokeWidth="0.9" fill="none" opacity="0.5" />
+      <text x="518" y="56" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.14em" opacity="0.7">15</text>
 
-      {/* PCH along the coast */}
-      <text x="80" y="160" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.14em" opacity="0.55" transform="rotate(-86 80 160)">PCH · CA-1</text>
+      {/* 91 — east-west through North OC into IE (Riverside) */}
+      <path d="M 270 334 L 320 320 L 380 305 L 440 280 L 498 258 L 560 250 L 640 246"
+            stroke="var(--salt-3)" strokeWidth="0.8" fill="none" strokeDasharray="3 2" opacity="0.45" />
+      <text x="598" y="242" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.14em" opacity="0.55">91</text>
 
-      {/* SERVICE RADIUS — Altio HQ at Santa Monica, ~35 min reach */}
-      <g transform="translate(150 295)">
-        <circle r="220" fill="var(--cyan)" opacity="0.025" />
-        <circle r="220" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.4" />
-        <circle r="150" fill="var(--cyan)" opacity="0.04" />
-        <circle r="150" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.4" />
-        <circle r="90" fill="var(--cyan)" opacity="0.06" />
-        <circle r="90" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.45" />
-        {/* radius labels */}
-        <text x="0" y="-92" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.16em" opacity="0.7">15 MIN</text>
-        <text x="0" y="-152" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.16em" opacity="0.7">25 MIN</text>
-        <text x="0" y="-222" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.16em" opacity="0.7">35 MIN</text>
+      {/* 60 — east-west through East LA and into IE */}
+      <path d="M 280 196 L 340 192 L 396 196 L 460 218 L 510 240 L 560 252"
+            stroke="var(--salt-3)" strokeWidth="0.8" fill="none" strokeDasharray="3 2" opacity="0.40" />
+      <text x="468" y="232" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.14em" opacity="0.50">60</text>
+
+      {/* SERVICE RADIUS RINGS — 30/60/90 min from HQ */}
+      <g transform="translate(110 215)">
+        <circle r="440" fill="var(--cyan)" opacity="0.02" />
+        <circle r="440" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.28" />
+        <circle r="300" fill="var(--cyan)" opacity="0.03" />
+        <circle r="300" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.36" />
+        <circle r="160" fill="var(--cyan)" opacity="0.05" />
+        <circle r="160" fill="none" stroke="var(--cyan)" strokeWidth="0.5" strokeDasharray="2 4" opacity="0.46" />
+        <text x="0" y="-162" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.18em" opacity="0.65">30 MIN</text>
+        <text x="0" y="-302" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.18em" opacity="0.65">60 MIN</text>
+        <text x="0" y="-442" textAnchor="middle" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.18em" opacity="0.65">90 MIN</text>
       </g>
 
-      {/* HQ MARKER — Santa Monica */}
-      <g transform="translate(150 295)">
-        <circle r="14" fill="var(--cyan)" opacity="0.2" />
-        <circle r="8" fill="var(--cyan)" opacity="0.5" />
+      {/* HQ MARKER */}
+      <g transform="translate(110 215)">
+        <circle r="14" fill="var(--cyan)" opacity="0.22" />
+        <circle r="8" fill="var(--cyan)" opacity="0.55" />
         <circle r="4" fill="var(--cyan)" />
-        <line x1="-2" y1="-3" x2="-32" y2="-58" stroke="var(--cyan)" strokeWidth="0.8" />
-        <g transform="translate(-148 -72)">
-          <rect x="0" y="-12" width="120" height="22" fill="var(--ink)" stroke="var(--cyan)" strokeWidth="0.8" />
+        <line x1="-2" y1="-3" x2="-30" y2="-50" stroke="var(--cyan)" strokeWidth="0.8" />
+        <g transform="translate(-152 -60)">
+          <rect x="0" y="-12" width="124" height="22" fill="var(--ink)" stroke="var(--cyan)" strokeWidth="0.8" />
           <text x="8" y="2" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.16em" fontWeight="500">ALTIO HQ</text>
           <text x="68" y="2" fill="var(--salt-2)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.10em">· SANTA MONICA</text>
         </g>
       </g>
 
-      {/* CITIES — real relative positions */}
+      {/* CITIES — calibrated to reference road atlas */}
       {[
-        { x: 175, y: 380, label: 'VENICE',         sub: 'Coast',     align: 'left' },
-        { x: 250, y: 220, label: 'BRENTWOOD',      sub: 'N of 10',   align: 'left' },
-        { x: 340, y: 300, label: 'BEVERLY HILLS',  sub: 'Wilshire',  align: 'left' },
-        { x: 440, y: 230, label: 'WEST HOLLYWOOD', sub: 'Sunset',    align: 'left' },
+        { x: 135, y: 256, label: 'LAX',            sub: 'Coast'     },
+        { x: 175, y: 195, label: 'BEVERLY HILLS',  sub: 'W LA'      },
+        { x: 215, y: 168, label: 'HOLLYWOOD',      sub: 'Central'   },
+        { x: 280, y: 196, label: 'DOWNTOWN LA',    sub: 'Civic'     },
+        { x: 230, y: 122, label: 'BURBANK',        sub: 'Valley'    },
+        { x: 315, y: 138, label: 'PASADENA',       sub: 'NE'        },
+        { x: 215, y: 365, label: 'LONG BEACH',     sub: 'Harbor'    },
+        { x: 350, y: 295, label: 'ANAHEIM',        sub: 'N OC'      },
+        { x: 370, y: 330, label: 'SANTA ANA',      sub: 'OC Civic'  },
+        { x: 410, y: 355, label: 'IRVINE',         sub: 'C OC'      },
+        { x: 340, y: 380, label: 'HUNTINGTON BCH', sub: 'Coast'     },
+        { x: 388, y: 408, label: 'NEWPORT BEACH',  sub: 'Coast'     },
+        { x: 390, y: 200, label: 'POMONA',         sub: 'E LA'      },
+        { x: 440, y: 218, label: 'ONTARIO',        sub: 'IE West'   },
+        { x: 510, y: 178, label: 'SAN BERNARDINO', sub: 'IE North'  },
+        { x: 498, y: 250, label: 'RIVERSIDE',      sub: 'IE South'  },
       ].map((c) => (
         <g key={c.label} transform={`translate(${c.x} ${c.y})`}>
-          <circle r="3.5" fill="var(--salt)" />
-          <circle r="9" fill="none" stroke="var(--salt)" strokeWidth="0.5" opacity="0.4" />
-          <text x="12" y="-2" fill="var(--salt)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.14em" fontWeight="500">{c.label}</text>
-          <text x="12" y="9" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.12em">· {c.sub}</text>
+          <circle r="3" fill="var(--salt)" />
+          <circle r="8" fill="none" stroke="var(--salt)" strokeWidth="0.4" opacity="0.35" />
+          <text x="9" y="-2" fill="var(--salt)" fontFamily="Geist Mono, monospace" fontSize="8.5" letterSpacing="0.12em" fontWeight="500">{c.label}</text>
+          <text x="9" y="9" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.10em">· {c.sub}</text>
         </g>
       ))}
 
-      {/* OCEAN LABEL */}
-      <text x="40" y="60" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.28em" opacity="0.55">
-        PACIFIC
-      </text>
-      <text x="40" y="75" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.28em" opacity="0.55">
-        OCEAN
-      </text>
+      {/* Region labels */}
+      <text x="18" y="44" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="0.30em" opacity="0.5">PACIFIC</text>
+      <text x="18" y="60" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="0.30em" opacity="0.5">OCEAN</text>
 
-      {/* SANTA MONICA BAY label */}
-      <text x="40" y="380" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.16em" opacity="0.6">
-        SANTA MONICA
-      </text>
-      <text x="40" y="392" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="7" letterSpacing="0.16em" opacity="0.6">
-        BAY
-      </text>
+      <text x="370" y="64" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">LOS ANGELES</text>
+      <text x="378" y="80" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">COUNTY</text>
 
-      {/* Compass rose */}
+      <text x="528" y="86" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">INLAND</text>
+      <text x="528" y="102" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">EMPIRE</text>
+
+      <text x="470" y="450" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">ORANGE</text>
+      <text x="470" y="464" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.30em" opacity="0.55">COUNTY</text>
+
+      {/* Compass */}
       <g transform="translate(600 56)" opacity="0.7">
         <circle r="22" fill="var(--ink)" stroke="var(--salt-3)" strokeWidth="0.5" />
         <line x1="0" y1="-22" x2="0" y2="-2" stroke="var(--cyan)" strokeWidth="1.5" />
@@ -3506,15 +3641,15 @@ const CoverageMap = () => (
         <text x="0" y="-26" fill="var(--cyan)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.16em" textAnchor="middle" fontWeight="500">N</text>
       </g>
 
-      {/* Scale bar */}
+      {/* Scale */}
       <g transform="translate(28 488)">
-        <line x1="0" y1="0" x2="80" y2="0" stroke="var(--salt-3)" strokeWidth="1" />
+        <line x1="0" y1="0" x2="100" y2="0" stroke="var(--salt-3)" strokeWidth="1" />
         <line x1="0" y1="-3" x2="0" y2="3" stroke="var(--salt-3)" strokeWidth="1" />
-        <line x1="40" y1="-2" x2="40" y2="2" stroke="var(--salt-3)" strokeWidth="0.5" />
-        <line x1="80" y1="-3" x2="80" y2="3" stroke="var(--salt-3)" strokeWidth="1" />
+        <line x1="50" y1="-2" x2="50" y2="2" stroke="var(--salt-3)" strokeWidth="0.5" />
+        <line x1="100" y1="-3" x2="100" y2="3" stroke="var(--salt-3)" strokeWidth="1" />
         <text x="0" y="14" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.12em">0</text>
-        <text x="40" y="14" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.12em" textAnchor="middle">2 MI</text>
-        <text x="80" y="14" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.12em" textAnchor="end">4 MI</text>
+        <text x="50" y="14" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.12em" textAnchor="middle">15 MI</text>
+        <text x="100" y="14" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="8" letterSpacing="0.12em" textAnchor="end">30 MI</text>
       </g>
 
       {/* Coordinates */}
@@ -3522,13 +3657,77 @@ const CoverageMap = () => (
         34.0195°N · 118.4912°W
       </text>
       <text x="612" y="520" textAnchor="end" fill="var(--salt-3)" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="0.16em">
-        WESTSIDE LOS ANGELES
+        SOUTHERN CALIFORNIA
       </text>
     </svg>
   </div>
 );
 
-Object.assign(window, { HowItWorks, WhyAltio, PropertiesSection });
+Object.assign(window, { HowItWorks, WhyAltio, PropertiesSection, InspectionSection });
+
+// --------- Inspection — included deliverable ---------
+function InspectionSection() {
+  const lines = [
+    { k: 'Timestamped photos', d: 'Every facade, every visit — date and time stamped, archived for your records.' },
+    { k: 'Flagged conditions', d: 'Cracks, water staining, sealant failures, missing fasteners — flagged on the drone footage in real time.' },
+    { k: 'Condition summary', d: 'A plain-English report your facilities director can hand to leadership. No engineering jargon.' },
+    { k: 'Comparison over time', d: 'Standing-service clients see facade condition tracked across visits. The deterioration is visible.' },
+  ];
+  return (
+    <section className="section" id="inspection">
+      <div className="section-wrap">
+        <header className="section-head">
+          <span className="section-num">04 / Included</span>
+          <div>
+            <span className="eyebrow">Inspection deliverable</span>
+            <h2 className="section-title">
+              We don't sell inspections.<br /><em>We include them.</em>
+            </h2>
+            <p className="section-lede">
+              The Sherpa is already on the wall. Cameras are already running. Every wash, window, and gutter visit doubles as a facade condition report — delivered to your inbox before the truck leaves. No add-on, no upcharge, no separate invoice.
+            </p>
+          </div>
+        </header>
+
+        {/* Cost comparison — three columns */}
+        <div className="inspection-compare">
+          <div className="ic-cell ic-trad">
+            <div className="ic-lbl">Traditional</div>
+            <div className="ic-name">Scaffold-based inspection</div>
+            <div className="ic-v">$100K<span className="ic-u">+</span></div>
+            <div className="ic-d">Per inspection on a 10+ story building. Lifts, scaffolds, two crews, OSHA paperwork, three weeks on site.</div>
+          </div>
+          <div className="ic-cell ic-drone">
+            <div className="ic-lbl">Standalone drone</div>
+            <div className="ic-name">Single inspection visit</div>
+            <div className="ic-v">$500<span className="ic-u">–</span>$10K</div>
+            <div className="ic-d">Most vendors charge $500&ndash;$3K per building, $5K&ndash;$10K for taller commercial — and treat the inspection as a separate product.</div>
+          </div>
+          <div className="ic-cell ic-altio">
+            <div className="ic-lbl">Altio</div>
+            <div className="ic-name">Bundled with every visit</div>
+            <div className="ic-v">$0<span className="ic-u">EXTRA</span></div>
+            <div className="ic-d">The Sherpa is already in the air for the wash. The footage and report come with the standing-service contract. No add-on.</div>
+          </div>
+        </div>
+
+        {/* What you get — what's in the report */}
+        <div className="inspection-grid">
+          {lines.map((l) => (
+            <div key={l.k} className="ig-cell">
+              <div className="ig-k">→ {l.k}</div>
+              <p>{l.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="inspection-kicker">
+          Every Altio visit ends the same way — with a <span className="cyan">deliverable</span> in your inbox.
+        </p>
+      </div>
+    </section>
+  );
+}
 </script>
   <script type="text/babel">/* ============================================
    ALTIO SITE — Specs / FAQ / CTA / Footer + Mount
@@ -3555,6 +3754,7 @@ const SpecWall = () => (
           { k: 'Sherpa throughput', v: '15K', u: 'SQ FT / HR', lbl: 'Coverage rate per drone, facade depth.' },
           { k: 'Lavo throughput', v: '6K', u: 'SQ FT / HR', lbl: 'Autonomous parking-deck floor coverage.' },
           { k: 'Crew at height', v: '0', u: 'PEOPLE', lbl: 'No scaffold. No rope access. No risk.' },
+          { k: 'Inspection upcharge', v: '$0', u: 'EXTRA', lbl: 'Facade condition report bundled with every visit.' },
         ].map((s) => (
           <div key={s.k} className="cell" style={{ background: 'var(--salt)', color: 'var(--ink)' }}>
             <span className="k">{s.k}</span>
@@ -3593,7 +3793,7 @@ const FAQ = () => {
     },
     {
       q: 'Do you offer standing service?',
-      a: 'Yes. Most beachfront and Westside properties operate on a recurring cycle — monthly inspections, quarterly washes, on-condition response after weather events. We deliver a photo report on every visit.',
+      a: 'Yes. Most beachfront and Southern California properties operate on a recurring cycle — monthly inspections, quarterly washes, on-condition response after weather events. We deliver a photo report on every visit.',
     },
   ];
   return (
@@ -3727,6 +3927,8 @@ const SurveyCTA = () => {
                     <option>Luxury HOA</option>
                     <option>Commercial office</option>
                     <option>High-rise condo</option>
+                    <option>Industrial warehouse</option>
+                    <option>Parking garage</option>
                     <option>Other</option>
                   </select>
                 </div>
@@ -3734,12 +3936,14 @@ const SurveyCTA = () => {
                   <label htmlFor="f-city">City</label>
                   <select id="f-city" name="city" required defaultValue="">
                     <option value="" disabled>Select…</option>
-                    <option>Santa Monica</option>
-                    <option>Venice</option>
-                    <option>Brentwood</option>
-                    <option>West Hollywood</option>
-                    <option>Beverly Hills</option>
-                    <option>Other Westside</option>
+                    <option>West LA (Santa Monica / Venice / Brentwood)</option>
+                    <option>Beverly Hills / West Hollywood</option>
+                    <option>Downtown LA / Hollywood</option>
+                    <option>San Fernando Valley / Pasadena</option>
+                    <option>South Bay / Long Beach</option>
+                    <option>Orange County</option>
+                    <option>Inland Empire</option>
+                    <option>Other Southern California</option>
                   </select>
                 </div>
               </div>
@@ -3784,7 +3988,7 @@ const Footer = () => (
       <div className="footer-top">
         <div className="footer-brand">
           <Wordmark weight={20} style={{ width: 140 }} />
-          <p>Autonomous exterior maintenance for luxury hotels, HOAs, and commercial properties on LA's westside.</p>
+          <p>Autonomous exterior maintenance for luxury hotels, HOAs, and commercial properties across Southern California.</p>
           <div style={{ marginTop: 24, fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.12em', color: 'var(--salt-3)', lineHeight: 1.8 }}>
             Santa Monica, CA<br />
             +1 (310) 555-0144<br />
@@ -3798,6 +4002,8 @@ const Footer = () => (
             <li><a href="#services">Window cleaning</a></li>
             <li><a href="#services">Gutter cleaning</a></li>
             <li><a href="#services">Parking garages</a></li>
+            <li><a href="#services">Graffiti removal</a></li>
+            <li><a href="#services">Facade inspection</a></li>
           </ul>
         </div>
         <div className="footer-col">
@@ -3812,11 +4018,12 @@ const Footer = () => (
         <div className="footer-col">
           <h5>Coverage</h5>
           <ul>
-            <li>Santa Monica</li>
-            <li>Venice</li>
-            <li>Brentwood</li>
-            <li>West Hollywood</li>
-            <li>Beverly Hills</li>
+            <li>West LA &middot; Westside</li>
+            <li>Downtown LA &middot; Hollywood</li>
+            <li>San Fernando Valley &middot; Pasadena</li>
+            <li>South Bay &middot; Long Beach</li>
+            <li>Orange County</li>
+            <li>Inland Empire</li>
           </ul>
         </div>
       </div>
@@ -3843,6 +4050,7 @@ const SiteApp = () => (
       <InActionBand />
       <HowItWorks />
       <WhyAltio />
+      <InspectionSection />
       <SpecWall />
       <PropertiesSection />
       <FAQ />

@@ -3039,6 +3039,80 @@ const TruckIcon = ({ color = 'currentColor', className = '', style = {} }) => (
   </svg>
 );
 
+// --- Landmark (classical pediment + columns — historic building) ---
+const LandmarkIcon = ({ color = 'currentColor', className = '', style = {} }) => (
+  <svg
+    viewBox="0 0 120 120"
+    className={className}
+    style={{ width: '100%', height: 'auto', display: 'block', ...style }}
+    fill="none"
+    stroke={color}
+    strokeWidth="2.5"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
+  >
+    {/* Pediment — triangular gable */}
+    <polyline points="14,42 60,18 106,42" />
+    {/* Cornice */}
+    <line x1="14" y1="42" x2="106" y2="42" />
+    {/* Frieze / architrave */}
+    <line x1="18" y1="50" x2="102" y2="50" />
+    {/* Four columns */}
+    <line x1="26" y1="50" x2="26" y2="94" />
+    <line x1="48" y1="50" x2="48" y2="94" />
+    <line x1="72" y1="50" x2="72" y2="94" />
+    <line x1="94" y1="50" x2="94" y2="94" />
+    {/* Stylobate / base steps */}
+    <line x1="14" y1="94" x2="106" y2="94" />
+    <line x1="10" y1="102" x2="110" y2="102" />
+  </svg>
+);
+
+// --- Shield / Seal (water-droplet inside a shield — protective coating) ---
+const ShieldIcon = ({ color = 'currentColor', className = '', style = {} }) => (
+  <svg
+    viewBox="0 0 120 120"
+    className={className}
+    style={{ width: '100%', height: 'auto', display: 'block', ...style }}
+    fill="none"
+    stroke={color}
+    strokeWidth="2.5"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
+  >
+    {/* Shield outline */}
+    <path d="M 60 14 L 100 28 L 100 64 Q 100 92 60 106 Q 20 92 20 64 L 20 28 Z" />
+    {/* Water droplet inside — bead-up metaphor for hydrophobic seal */}
+    <path d="M 60 38 Q 48 58 48 70 A 12 12 0 0 0 72 70 Q 72 58 60 38 Z" />
+  </svg>
+);
+
+// --- Solar (PV array — cell grid on a mount) ---
+const SolarIcon = ({ color = 'currentColor', className = '', style = {} }) => (
+  <svg
+    viewBox="0 0 120 120"
+    className={className}
+    style={{ width: '100%', height: 'auto', display: 'block', ...style }}
+    fill="none"
+    stroke={color}
+    strokeWidth="2.5"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
+  >
+    {/* Panel — outer rect */}
+    <rect x="14" y="28" width="92" height="60" />
+    {/* 4×2 cell grid */}
+    <line x1="37" y1="28" x2="37" y2="88" />
+    <line x1="60" y1="28" x2="60" y2="88" />
+    <line x1="83" y1="28" x2="83" y2="88" />
+    <line x1="14" y1="58" x2="106" y2="58" />
+    {/* Mounting stand */}
+    <line x1="36" y1="88" x2="36" y2="104" />
+    <line x1="84" y1="88" x2="84" y2="104" />
+    <line x1="22" y1="104" x2="98" y2="104" />
+  </svg>
+);
+
 // --- Inspection (viewfinder framing brackets — camera + assessment) ---
 const InspectionIcon = ({ color = 'currentColor', className = '', style = {} }) => (
   <svg
@@ -3077,6 +3151,9 @@ Object.assign(window, {
   SweepIcon,
   WindowIcon,
   TruckIcon,
+  LandmarkIcon,
+  ShieldIcon,
+  SolarIcon,
   PathIcon,
   InspectionIcon,
   DronePathPattern,
@@ -3293,6 +3370,30 @@ const Services = () => {
       core: false,
     },
     {
+      tag: 'Sherpa drone · soft-wash · preservation-safe',
+      title: 'Historic Buildings',
+      desc: 'Routine cleaning of landmark properties usually does not trigger a Certificate of Appropriateness — but the way it is done can still damage the building. Soft-wash at 100–500 PSI from the air protects terra cotta, lime mortar, and painted stucco. No scaffold anchors, no rope rigging, no contact with the substrate. We capture runoff for properties with older coatings and deliver a before/after report owners can file against Mills Act or HCM maintenance commitments.',
+      specs: ['SOFT-WASH 100–500 PSI', 'ZERO SURFACE CONTACT', 'RUNOFF CAPTURE'],
+      icon: LandmarkIcon,
+      core: false,
+    },
+    {
+      tag: 'Sherpa drone · radar-spec application',
+      title: 'Sealing & Waterproofing',
+      desc: 'Spray-applied water repellents and concrete sealants — Prosoco Siloxane WB and other spec-grade products — up to 200 ft, with onboard radar holding the wand at exact manufacturer-spec stand-off distance. That is the gap a swing-stage crew cannot consistently hold across a 100,000 sq ft tilt wall, and it is what voids the coating warranty. Same Sherpa, swapped payload — sealing rides the same truck that just finished cleaning, so a property gets the wash and the seal in one mobilization.',
+      specs: ['RADAR-LOCKED STAND-OFF', '20× SCAFFOLD SPEED', 'PROSOCO COMPATIBLE'],
+      icon: ShieldIcon,
+      core: false,
+    },
+    {
+      tag: 'Sherpa drone · rooftop · panels',
+      title: 'Solar & Rooftop Cleaning',
+      desc: 'Dirty panels lose 15–25% output. We clean them from the air — no foot traffic on your roof membrane, no risk to racking or wiring. Same visit covers flat roofs, awnings, and canopies. Soft-wash calibrated per surface so nothing gets damaged.',
+      specs: ['SOLAR ARRAYS', 'FLAT ROOFS · AWNINGS', 'NO MEMBRANE CONTACT'],
+      icon: SolarIcon,
+      core: false,
+    },
+    {
       tag: 'On request · with any contract',
       title: 'Facade Inspection',
       desc: 'Add a facade condition report to any cleaning visit. We capture footage on request — timestamped photos, flagged problem areas, plain-English summary. No extra trip. No extra invoice.',
@@ -3307,7 +3408,7 @@ const Services = () => {
         <header className="section-head">
           <span className="section-num">01 / Services</span>
           <div>
-            <span className="eyebrow">Six services. Two platforms.</span>
+            <span className="eyebrow">Nine services. Two platforms.</span>
             <h2 className="section-title">
               Everything outside,<br />
               <em>handled by robots.</em>
@@ -3565,6 +3666,7 @@ const PropertiesSection = () => {
     { name: 'High-rise condos',    city: 'Wilshire corridor',             badge: 'Up to 200 ft',      PatternComp: CoastScan },
     { name: 'Industrial warehouse',city: 'Inland Empire · South Bay',    badge: 'Large surface area', PatternComp: DotGrid },
     { name: 'Parking garages',     city: 'Throughout the region',         badge: 'Lavo AI · ground',   PatternComp: DronePathPattern },
+    { name: 'Historic landmarks',  city: 'Hollywood · Downtown · Pasadena', badge: 'Soft-wash · no anchors', PatternComp: CoastScan },
   ];
   return (
     <section className="section alt" id="properties">
@@ -3940,6 +4042,10 @@ const FAQ = () => {
       a: 'Stucco, glass curtain wall, brick, metal panel, painted concrete, and most coated facade systems. Pressure and chemistry are calibrated per surface — the drone soft-washes a Venetian plaster wall and high-pressures a parking structure wall on the same job.',
     },
     {
+      q: 'Can you clean historic and landmark buildings?',
+      a: 'Yes — and it is one of the strongest cases for the drone method. Routine cleaning of a landmark property generally does not require a Certificate of Appropriateness or CEQA review, because cleaning is not an "alteration." The risk that preservation boards actually care about is physical damage: scaffold anchors drilled into the facade, swing-stage rigging against ornamental stone, or aggressive pressure that erodes mortar and patina. The Sherpa eliminates all three — no contact, no anchors, and pressure modulated as low as 100 PSI for terra cotta, lime mortar, and painted stucco. We also capture wash runoff (a real Clean Water Act / Porter-Cologne requirement for any commercial wash job, more pointed when older coatings like lead paint are in play) and deliver a timestamped before/after report owners can file against Mills Act or HCM maintenance commitments.',
+    },
+    {
       q: 'Is it safe? Insured?',
       a: 'The whole point is safety: no one is on the wall. We are licensed, fully insured, and FAA Part 107 certified. Traditional pressure-wash crews carry an average $42,000 work-at-height claim per incident — Altio carries zero, because there is no one at height to fall.',
     },
@@ -3954,6 +4060,10 @@ const FAQ = () => {
     {
       q: 'Do you offer standing service?',
       a: 'Yes. Most beachfront and Southern California properties operate on a recurring cycle — monthly inspections, quarterly washes, on-condition response after weather events. We deliver a photo report on every visit.',
+    },
+    {
+      q: 'Can the same drone seal and waterproof, or is that a separate vendor?',
+      a: 'Same Sherpa, swapped payload. Lucid Bots ships a spray-application kit that turns the cleaning drone into a sealing platform — Prosoco Siloxane WB Concentrate and similar spec-grade water repellents pump from a ground drum up to the airborne wand. The reason it matters: onboard radar holds the nozzle at exact manufacturer-spec stand-off distance, which is what controls coverage rate and PSI, which is what determines whether the warranty is valid. A person on a swing stage with a wand cannot consistently hold that distance across a 200 ft tilt wall. We can. And because it is the same vehicle, the same crew, and the same day, the wash-then-seal sequence does not require a second mobilization.',
     },
   ];
   return (
